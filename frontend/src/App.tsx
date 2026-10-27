@@ -1,5 +1,3 @@
-// import React from "react";
-// import AppLayoutComponent from "./components/layout";
 import MainPanel from "./components/layout/MainPanel";
 import SidebarPanel from "./components/layout/SidebarPanel";
 
