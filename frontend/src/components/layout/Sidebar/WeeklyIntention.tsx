@@ -10,7 +10,12 @@ const WeeklyIntention = () => {
         Make room for what matters.
       </h4>
       <div>
-        <p className="text-sm text-muted text-2xs">4 of 6 habits complete</p>
+        <div className="w-full h-2 bg-progress rounded-full overflow-hidden">
+          <div className="w-[66.67%] h-full bg-muted rounded-full"></div>
+        </div>
+        <p className="text-sm text-muted text-2xs pt-2.5">
+          4 of 6 habits complete
+        </p>
       </div>
     </div>
   );

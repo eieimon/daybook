@@ -4,6 +4,7 @@
   /* Colors */
   --color-primary: #54805d;
   --color-secondary: #e5f0e9;
+  --color-progress: #52615a;
   --color-muted: #a9b5ae;
   --color-title: #051e01;
 
@@ -11,6 +12,9 @@
   --text-2xs: 0.6875rem; /* 11px */
   --text-xs-custom: 0.8125rem; /* 13px */
   --text-sm-custom: 0.9375rem; /* 15px */
+
+  /* Custom spacing */
+  --spacing-2.5: 0.625rem; /* 10px */
 }
 
 :root {

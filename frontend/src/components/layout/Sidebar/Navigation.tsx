@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CiGrid42 } from "react-icons/ci";
 import { GoBook } from "react-icons/go";
 import { GoTasklist } from "react-icons/go";
@@ -10,26 +10,86 @@ const Navigation = () => {
     <div>
       <p className="text-2xs text-muted font-bold uppercase mb-2">Workspace</p>
       <nav className="flex flex-col gap-x-4 gap-y-2">
-        <Link to="/" className="flex items-center p-3">
-          <CiGrid42 className="mr-3" />
-          <span className="text-sm-custom text-muted">Overview</span>
-        </Link>
-        <Link to="/my-diary" className="flex items-center p-3 bg-white">
-          <GoBook className="mr-3" />
-          <span className="text-sm-custom text-title">My Diary</span>
-        </Link>
-        <Link to="/tasks" className="flex items-center p-3">
-          <GoTasklist className="mr-3" />
-          <span className="text-sm-custom text-muted">Tasks</span>
-        </Link>
-        <Link to="/calendar" className="flex items-center p-3">
-          <CiCalendarDate className="mr-3" />
-          <span className="text-sm-custom text-muted">Calendar</span>
-        </Link>
-        <Link to="/notes" className="flex items-center p-3">
-          <LuStickyNote className="mr-3" />
-          <span className="text-sm-custom text-muted">Notes</span>
-        </Link>
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            `flex items-center p-3 rounded-lg ${
+              isActive
+                ? "bg-secondary text-title"
+                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+            }`
+          }
+        >
+          <CiGrid42 className="mr-3" aria-hidden="true" focusable="false" />
+          <span className="text-sm-custom group-hover:text-primary">
+            Overview
+          </span>
+        </NavLink>
+        <NavLink
+          to="/my-diary"
+          end
+          className={({ isActive }) =>
+            `flex items-center p-3 rounded-lg ${
+              isActive
+                ? "bg-secondary text-title"
+                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+            }`
+          }
+        >
+          <GoBook className="mr-3" aria-hidden="true" focusable="false" />
+          <span className="text-sm-custom group-hover:text-primary">
+            My Diary
+          </span>
+        </NavLink>
+        <NavLink
+          to="/tasks"
+          end
+          className={({ isActive }) =>
+            `flex items-center p-3 rounded-lg ${
+              isActive
+                ? "bg-secondary text-title"
+                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+            }`
+          }
+        >
+          <GoTasklist className="mr-3" aria-hidden="true" focusable="false" />
+          <span className="text-sm-custom group-hover:text-primary">Tasks</span>
+        </NavLink>
+        <NavLink
+          to="/calendar"
+          end
+          className={({ isActive }) =>
+            `flex items-center p-3 rounded-lg ${
+              isActive
+                ? "bg-secondary text-title"
+                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+            }`
+          }
+        >
+          <CiCalendarDate
+            className="mr-3"
+            aria-hidden="true"
+            focusable="false"
+          />
+          <span className="text-sm-custom group-hover:text-primary">
+            Calendar
+          </span>
+        </NavLink>
+        <NavLink
+          to="/notes"
+          end
+          className={({ isActive }) =>
+            `flex items-center p-3 rounded-lg ${
+              isActive
+                ? "bg-secondary text-title"
+                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+            }`
+          }
+        >
+          <LuStickyNote className="mr-3" aria-hidden="true" focusable="false" />
+          <span className="text-sm-custom group-hover:text-primary">Notes</span>
+        </NavLink>
       </nav>
     </div>
   );
