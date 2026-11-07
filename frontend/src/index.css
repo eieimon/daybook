@@ -3,10 +3,13 @@
 @theme {
   /* Colors */
   --color-primary: #54805d;
+  --color-primary-dark: #3e5c44;
   --color-secondary: #e5f0e9;
+  --color-basic-theme: #f6f5f1;
   --color-progress: #52615a;
   --color-muted: #a9b5ae;
   --color-title: #051e01;
+  --color-subtitle: #586860;
 
   /* Custom font sizes */
   --text-2xs: 0.6875rem; /* 11px */
@@ -87,13 +90,13 @@ h1,
 h2 {
   font-family: var(--heading);
   font-weight: 500;
-  color: var(--text-h);
+  /* color: var(--text-h); */
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 38px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
+  /* margin: 32px 0; */
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;

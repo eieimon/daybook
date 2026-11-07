@@ -10,9 +10,13 @@ const User = () => {
           <p className="text-xs text-muted">Personal Space</p>
         </div>
       </div>
-      <div>
+      <button
+        type="button"
+        aria-label="settings"
+        className="cursor-pointer hover:text-primary ease-in-out duration-300"
+      >
         <IoSettingsOutline className="text-white" />
-      </div>
+      </button>
     </div>
   );
 };

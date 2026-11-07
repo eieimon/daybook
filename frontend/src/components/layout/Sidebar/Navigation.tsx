@@ -17,7 +17,7 @@ const Navigation = () => {
             `flex items-center p-3 rounded-lg ${
               isActive
                 ? "bg-secondary text-title"
-                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+                : "text-white hover:bg-secondary/50 hover:text-primary group"
             }`
           }
         >
@@ -33,7 +33,7 @@ const Navigation = () => {
             `flex items-center p-3 rounded-lg ${
               isActive
                 ? "bg-secondary text-title"
-                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+                : "text-white hover:bg-secondary/50 hover:text-primary group"
             }`
           }
         >
@@ -49,7 +49,7 @@ const Navigation = () => {
             `flex items-center p-3 rounded-lg ${
               isActive
                 ? "bg-secondary text-title"
-                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+                : "text-white hover:bg-secondary/50 hover:text-primary group"
             }`
           }
         >
@@ -63,7 +63,7 @@ const Navigation = () => {
             `flex items-center p-3 rounded-lg ${
               isActive
                 ? "bg-secondary text-title"
-                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+                : "text-white hover:bg-secondary/50 hover:text-primary group"
             }`
           }
         >
@@ -83,7 +83,7 @@ const Navigation = () => {
             `flex items-center p-3 rounded-lg ${
               isActive
                 ? "bg-secondary text-title"
-                : "text-muted hover:bg-secondary/50 hover:text-primary group"
+                : "text-white hover:bg-secondary/50 hover:text-primary group"
             }`
           }
         >
