@@ -12,6 +12,40 @@ const todoSchema = mongoose.Schema(
     description: {
       type: String,
     },
+    category: {
+      type: String,
+      enum: ["work", "personal", "shopping", "others"],
+      default: "others",
+    },
+    status: {
+      type: String,
+      enum: ["todo", "in-progress", "completed"],
+      default: "todo",
+    },
+    priority: {
+      type: String,
+      enum: ["low", "normal", "high"],
+      default: "normal",
+    },
+    dueDate: {
+      type: Date,
+    },
+    estimatedTime: {
+      type: Number, // in hours
+    },
+    isRecurring: {
+      type: Boolean,
+      default: false,
+    },
+    recurrencePattern: {
+      type: String,
+      enum: ["daily", "weekly", "monthly", "yearly"],
+    },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     completed: {
       type: Boolean,
       default: false,

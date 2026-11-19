@@ -6,13 +6,11 @@ import errorHandler from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.js";
 
 import todoRoutes from "./routes/todoRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
 const app = express();
-
-// Use the error handling middleware
-app.use(errorHandler);
 
 // Middleware
 app.use(cors());
@@ -20,10 +18,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.use("/api/todos", todoRoutes);
+app.use("/api/tasks", todoRoutes);
+app.use("/api/users", userRoutes);
+
+// Use the error handling middleware
+app.use(errorHandler);
 
 // Connect to MongoDB
 connectDB();
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
