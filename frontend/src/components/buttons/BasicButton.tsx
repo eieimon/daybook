@@ -1,6 +1,6 @@
 import React from "react";
 
-type BasicButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
   onClick?: () => void;
   disabled?: boolean;
@@ -8,17 +8,17 @@ type BasicButtonProps = {
   icon?: React.ReactNode; // Optional icon prop
 };
 
-const BasicButtonWidget = ({
+const ButtonWidget = ({
   label,
   onClick,
   disabled,
   className,
   icon,
-}: BasicButtonProps) => {
+}: ButtonProps) => {
   return (
     <button
       type="button"
-      className={`flex items-center px-4 py-2 bg-primary text-white rounded-2xl text-xs-custom cursor-pointer hover:bg-primary-dark ease-in-out duration-300 ${className || ""}`}
+      className={`flex items-center px-4 py-2 bg-daybook-primary text-white rounded-2xl text-xs-custom cursor-pointer hover:bg-primary-dark ease-in-out duration-300 ${className || ""}`}
       onClick={onClick}
       disabled={disabled}
     >
@@ -28,4 +28,4 @@ const BasicButtonWidget = ({
   );
 };
 
-export default BasicButtonWidget;
+export default ButtonWidget;
