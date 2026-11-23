@@ -7,7 +7,7 @@ export const API_ENDPOINT = {
   REFRESH_TOKEN: "/auth/refresh-token",
   GET_USER_PROFILE: "/user/profile",
   UPDATE_USER_PROFILE: "/user/profile/update",
-  GET_TASKS: "/tasks",
+  GET_ALL_TASKS: "/tasks",
   CREATE_TASK: "/tasks/create",
   UPDATE_TASK: "/tasks/update",
   DELETE_TASK: "/tasks/delete",

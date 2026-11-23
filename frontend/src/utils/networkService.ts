@@ -1,7 +1,7 @@
 import { AxiosError, isAxiosError } from "axios";
 import type { AxiosRequestConfig, AxiosResponse } from "axios";
 import AxiosApiClient from "./axiosClient";
-import { API_ENDPOINT } from "../../constants/endpoints";
+import { API_ENDPOINT } from "../constants/endpoints";
 
 interface RequestParams {
   [key: string]:
