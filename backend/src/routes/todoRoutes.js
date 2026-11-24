@@ -5,10 +5,12 @@ import {
   updateTodoById,
   deleteTodoById,
 } from "../controllers/todoController.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// Register todo routes
+// Register todo routes with authentication middleware
+router.use(protect);
 
 router.get("/user/:userId", getTodosByUserId);
 router.post("/", createTodo);

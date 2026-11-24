@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
+import { generateToken, generateRefreshToken } from "../utils/generateToken.js";
+import { setAuthCookie } from "../utils/setAuthCookie.js";
 
 /**
  * registerUser()
@@ -27,12 +28,21 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+    const accessToken = generateToken(user.id.toString());
+    const refreshToken = generateRefreshToken(user.id);
+
+    // Store refresh token in HTTP-only cookie
+    setAuthCookie(res, refreshToken);
+
     res.status(201).json({
       success: true,
       data: {
-        _id: user.id,
-        name: user.name,
-        email: user.email,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        },
+        accessToken,
       },
     });
   } else {
@@ -51,22 +61,36 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  // Check for user email
-  const user = await User.findOne({ email });
+  if (typeof email !== "string" || typeof password !== "string") {
+    res.status(400);
+    throw new Error("Email and password are required");
+  }
 
-  if (user && (await user.matchPassword(password))) {
-    res.json({
-      success: true,
-      data: {
-        _id: user.id,
-        name: user.name,
-        email: user.email,
-      },
-    });
-  } else {
+  // Check for user email
+  const user = await User.findOne({ email }).select("+password");
+
+  if (!user || !(await user.matchPassword(password))) {
     res.status(401);
     throw new Error("Invalid email or password");
   }
+
+  const accessToken = generateToken(user.id.toString());
+  const refreshToken = generateRefreshToken(user.id);
+
+  // Store refresh token in HTTP-only cookie
+  setAuthCookie(res, refreshToken);
+
+  res.status(200).json({
+    success: true,
+    data: {
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      },
+      accessToken,
+    },
+  });
 });
 
 export { registerUser, loginUser };
